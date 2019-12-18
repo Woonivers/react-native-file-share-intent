@@ -13,8 +13,8 @@ Pod::Spec.new do |s|
   s.authors      = package['author']
   s.homepage     = package['homepage']
   s.platform     = :ios, "7.0"
-  s.source       = { :git => "https://github.com/author/RNFileShareIntent.git", :tag => "master" }
-  s.source_files  = "RNFileShareIntent/**/*.{h,m}"
+  s.source       = { :git => "https://github.com/Woonivers/react-native-file-share-intent.git", :tag => s.version }
+  s.source_files   = '**/*.{h,m}'
   s.requires_arc = true
 
 
@@ -23,4 +23,4 @@ Pod::Spec.new do |s|
 
 end
 
-  
+
