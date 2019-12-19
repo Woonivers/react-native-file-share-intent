@@ -9,7 +9,7 @@
 #import "RNFileShareIntent.h"
 #import "RCTRootView.h"
 #import <MobileCoreServices/MobileCoreServices.h>
-#import <RCTLog.h>
+#import "RCTLog.h"
 @implementation RNFileShareIntent
 static NSItemProvider* ShareFileIntentModule_itemProvider;
 static NSExtensionContext* extContext;
@@ -23,7 +23,7 @@ RCT_EXPORT_METHOD(getFilePath:(RCTResponseSenderBlock)callback)
             callback(@[url.absoluteString]);
         }];
     }
-    
+
     if ([ShareFileIntentModule_itemProvider hasItemConformingToTypeIdentifier:(NSString *)kUTTypeFileURL]) {
         [ShareFileIntentModule_itemProvider loadItemForTypeIdentifier:(NSString *)kUTTypeFileURL options:nil completionHandler:^(NSURL *url, NSError *error) {
             callback(@[url.absoluteString]);
@@ -34,13 +34,13 @@ RCT_EXPORT_METHOD(getFilePath:(RCTResponseSenderBlock)callback)
             callback(@[url.absoluteString]);
         }];
     }
-    
+
     if ([ShareFileIntentModule_itemProvider hasItemConformingToTypeIdentifier:(NSString *)kUTTypeBMP]) {
         [ShareFileIntentModule_itemProvider loadItemForTypeIdentifier:(NSString *)kUTTypeBMP options:nil completionHandler:^(NSURL *url, NSError *error) {
             callback(@[url.absoluteString]);
         }];
     }
-    
+
     if ([ShareFileIntentModule_itemProvider hasItemConformingToTypeIdentifier:(NSString *)kUTTypeGIF]) {
         [ShareFileIntentModule_itemProvider loadItemForTypeIdentifier:(NSString *)kUTTypeGIF options:nil completionHandler:^(NSURL *url, NSError *error) {
             callback(@[url.absoluteString]);
@@ -91,7 +91,7 @@ RCT_EXPORT_METHOD(getFilePath:(RCTResponseSenderBlock)callback)
             callback(@[url.absoluteString]);
         }];
     }
-    
+
 }
 
 RCT_EXPORT_METHOD(openURL:(NSString *)url) {
@@ -103,7 +103,7 @@ RCT_EXPORT_METHOD(openURL:(NSString *)url) {
 
 RCT_EXPORT_METHOD(close)
 {
-    
+
     [ extContext completeRequestReturningItems: @[] completionHandler: nil ];
 }
 
